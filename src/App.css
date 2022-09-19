@@ -1,38 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #000;
+  --secondary-color: #fff;
+}
+
+body {
+  font-family: 'Heebo', sans-serif;
+  overflow: hidden;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  transition: all 0.5s ease-in;
+}
+
+.App.dark {
+  --primary-color: #fff;
+  --secondary-color: #333;
+
+  background: #111;
+  color: var(--primary-color);
+}
+
+.toggle {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: absolute;
+  top: 100px;
+  padding: 10px 10px;
+  background: var(--primary-color);
+  border: none;
+  border-radius: 20px;
+  color: var(--secondary-color);
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.toggle:focus {
+  outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.needle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 65px;
+  background: var(--primary-color);
+  transform-origin: bottom center;
+  transition: all 0.2s ease-out;
+}
+
+.needle.hour {
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.needle.minute {
+  height: 100px;
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.needle.second {
+  height: 100px;
+  background: #e74c3c;
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.center-point {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: #e74c3c;
+  border-radius: 50%;
+}
+
+.center-point::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5px;
+  height: 5px;
+  background: var(--primary-color);
+  border-radius: 50%;
+}
+
+.time {
+  font-size: 3.75rem;
+}
+
+.date {
+  font-size: 0.875rem;
+  color: #aaa;
+  letter-spacing: 0.0187rem;
+  text-transform: uppercase;
+}
+  
+.circle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 4px;
+  background: var(--primary-color);
+  border-radius: 12px;
+  color: var(--secondary-color);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  transition: all 0.5s ease-in;
 }
