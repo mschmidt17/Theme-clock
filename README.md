@@ -1,6 +1,6 @@
 ### Dia 19: Theme-clock
 
-Se trata de un proyecto simple para practicar React, Javascript, HTML y CSS. Utilizando informacion de peliculas de una API.
+Se trata de un proyecto simple para practicar React, Javascript, HTML y CSS. 
 
 
 #50 days of code 💻
